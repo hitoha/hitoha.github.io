@@ -1,0 +1,85 @@
+---
+layout: default
+title: Hitoha Marui and hitoha.moe
+---
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><span lang="ja">丸井ひとは</span> &times; hitoha.moe</p>
+      <h1>
+        <span>Quiet girl.</span>
+        <span>Closed book.</span>
+        <span class="accent">Open source.</span>
+      </h1>
+      <p class="lede">
+        Hitoha Marui is the youngest of the Marui triplets in <cite>Mitsudomoe</cite>.
+        <span class="nowrap">HITOHA.<span lang="ja">もえ</span></span> is the anime-and-programming lab that carries her name.
+        This page introduces both.
+      </p>
+      <div class="actions">
+        <a class="btn btn--solid" href="{{ '/hitoha-marui/' | relative_url }}">Meet Hitoha Marui</a>
+        <a class="btn" href="{{ '/hitoha-moe/' | relative_url }}">About hitoha.moe</a>
+      </div>
+    </div>
+    {% include book.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>One name, two things</h2>
+    </div>
+    <div class="duo">
+      <div class="panel">
+        <p class="eyebrow">The character</p>
+        <h3>Hitoha Marui <small lang="ja">丸井ひとは</small></h3>
+        <p>
+          A sixth-grader who rarely speaks, never puts her book down, and unsettles her classmates
+          with a dark aura she doesn't mean to have. Underneath: a shy kid who adores the class
+          hamster and a Sunday-morning hero show.
+        </p>
+        <a class="more" href="{{ '/hitoha-marui/' | relative_url }}">Read her profile &rarr;</a>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">The website</p>
+        <h3>HITOHA.<span lang="ja">もえ</span></h3>
+        <p>
+          &ldquo;Anime Programming&rdquo;: the home of HITOHA Labs since 2019. Software releases,
+          hands-on guides to networking, Linux and A.I., and now and then some anime, travel
+          or a Eurobeat track.
+        </p>
+        <a class="more" href="{{ '/hitoha-moe/' | relative_url }}">What's on the site &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Projects from HITOHA Labs</h2>
+      <a href="{{ '/hitoha-moe/' | relative_url }}">More about the site &rarr;</a>
+    </div>
+    {% include cards.html list=site.data.projects %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Latest from the blog</h2>
+      <a href="{{ site.blog_url }}" rel="noopener">Open hitoha.moe <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <ul class="posts" data-latest="{{ site.blog_api }}">
+      {% for post in site.data.posts %}
+      <li>
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%-d %b %Y" }}</time>
+        <a href="{{ post.url }}" rel="noopener">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/latest.js' | relative_url }}" defer></script>

@@ -1,0 +1,26 @@
+- name: Pururin Collective Forum
+  kind: Forum
+  url: https://pururin.moe/index.php
+  summary: >-
+    A relaxed forum for anime culture, networking, programming, homelabs and
+    reverse engineering, opened in May 2026.
+
+- name: Discord
+  kind: Chat
+  url: https://discord.gg/aw8pt2SWnv
+  summary: >-
+    The collective's Discord server.
+
+- name: ΕΛΠΙΣ DNS
+  kind: DNS
+  url: https://elpis.pururin.moe/
+  summary: >-
+    The collective's DNS service, with its own IPv6-only recursive resolvers
+    being built behind it.
+
+- name: Open PON Foundation
+  kind: Networking
+  url: https://www.hitoha.moe/open-pon-foundation-an-open-last-mile/
+  summary: >-
+    A vendor-neutral, volunteer effort for open, interoperable and
+    privacy-respecting GPON and XGS-PON equipment.

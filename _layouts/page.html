@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="page">
+  <header class="page__head wrap">
+    {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+    <h1>{% if page.heading %}{{ page.heading }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% if page.title_ja %}<p class="page__ja" lang="ja">{{ page.title_ja }}</p>{% endif %}
+    {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+  </header>
+  <div class="page__body wrap">
+    <div class="prose">
+{{ content }}
+    </div>
+    {% if page.facts %}
+    <aside class="facts" aria-label="{{ page.facts_title }}">
+      <h2>{{ page.facts_title }}</h2>
+      <dl>
+        {% for fact in page.facts %}
+        <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+        {% endfor %}
+      </dl>
+    </aside>
+    {% endif %}
+  </div>
+</article>

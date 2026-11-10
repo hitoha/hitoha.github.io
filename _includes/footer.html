@@ -1,0 +1,18 @@
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social" aria-label="Anime4000 elsewhere">
+      {% for item in site.data.social %}
+      <li><a href="{{ item.url }}" rel="noopener me">{{ item.name }}</a></li>
+      {% endfor %}
+    </ul>
+    <p>
+      A fan-made page. <cite>Mitsudomoe</cite> and Hitoha Marui belong to Norio Sakurai and Akita Shoten;
+      no official artwork is used here.
+    </p>
+    <p>
+      &copy; {{ site.time | date: "%Y" }} {{ site.author }} &middot;
+      <a href="{{ site.blog_url }}" rel="noopener">hitoha.moe</a> &middot;
+      Built with Jekyll on GitHub Pages
+    </p>
+  </div>
+</footer>

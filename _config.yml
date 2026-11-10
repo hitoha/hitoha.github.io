@@ -1,0 +1,27 @@
+title: HITOHA.もえ
+tagline: Anime Programming
+description: >-
+  A small guide to Hitoha Marui, the quiet triplet from Mitsudomoe, and to
+  hitoha.moe, the anime-and-programming lab that carries her name.
+lang: en
+author: Anime4000
+
+url: https://hitoha.github.io
+baseurl: ""
+
+# The main site this page points to
+blog_url: https://www.hitoha.moe
+blog_api: https://www.hitoha.moe/wp-json/wp/v2/posts?per_page=5&_fields=link,title,date
+
+permalink: pretty
+markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

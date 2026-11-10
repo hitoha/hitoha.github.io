@@ -1,0 +1,14 @@
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <svg class="brand__leaf" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M16 3c9 4 11 16 0 26C5 19 7 7 16 3Z" fill="currentColor"/></svg>
+      <span>HITOHA.<span lang="ja">もえ</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <a class="nav__out" href="{{ site.blog_url }}" rel="noopener">Visit the blog <span aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </div>
+</header>

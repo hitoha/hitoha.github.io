@@ -1,0 +1,728 @@
+/* HITOHA.もえ — paper, ink, and one closed book */
+
+:root {
+  --paper: #f7f3ea;
+  --paper-2: #efe8d9;
+  --ink: #1e1a2b;
+  --ink-soft: #5a556d;
+  --line: #d8cfbc;
+  --accent: #5b3f9e;
+  --on-accent: #ffffff;
+  --ribbon: #c8553d;
+  --aura: rgba(91, 63, 158, 0.3);
+  --cover: #2b2447;
+  --cover-spine: #17132a;
+  --pages: #fbf8f1;
+  --label: #f7f3ea;
+
+  --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, "SF Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14121c;
+    --paper-2: #1d1a29;
+    --ink: #ece7dc;
+    --ink-soft: #a9a3bb;
+    --line: #2e2a3f;
+    --accent: #b59cf0;
+    --on-accent: #14121c;
+    --ribbon: #e07a5f;
+    --aura: rgba(150, 120, 240, 0.28);
+    --cover: #3b3163;
+    --cover-spine: #231d3d;
+    --pages: #d9d2c2;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.7 var(--sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, 68rem);
+  margin-inline: auto;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: -999rem;
+  top: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0.3rem;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: 0.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font: 500 0.75rem var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Header ---------- */
+
+.site-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-head .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: 700 1.35rem var(--serif);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand__leaf {
+  color: var(--ribbon);
+  transform: rotate(18deg);
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.4rem;
+}
+
+.nav a {
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.nav .nav__out {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.7rem 1.15rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(3rem, 8vw, 6.5rem);
+  overflow: hidden;
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 6.4vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero h1 .accent {
+  color: var(--accent);
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* The book she never puts down */
+
+.book {
+  position: relative;
+  justify-self: center;
+  width: min(14.5rem, 56vw);
+  aspect-ratio: 5 / 7;
+}
+
+.book__aura {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(closest-side, var(--aura), transparent);
+}
+
+.book__cover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: rotate(-5deg);
+  border-radius: 0.25rem 0.6rem 0.6rem 0.25rem;
+  background: linear-gradient(90deg, var(--cover-spine) 0 6%, rgba(255, 255, 255, 0.08) 6% 7.5%, transparent 7.5%), var(--cover);
+  box-shadow:
+    5px 5px 0 -1px var(--pages),
+    6px 6px 0 0 var(--line),
+    0 1.75rem 2.5rem -1.25rem rgba(20, 15, 40, 0.55);
+}
+
+.book__label {
+  padding: 1.3rem 0.65rem;
+  background: var(--label);
+  color: #1e1a2b;
+  font: 700 1.6rem/1 var(--serif);
+  letter-spacing: 0.3em;
+  writing-mode: vertical-rl;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  outline: 1px solid rgba(0, 0, 0, 0.18);
+  outline-offset: -5px;
+}
+
+.book__en {
+  position: absolute;
+  inset: auto 0 1.1rem;
+  text-align: center;
+  font: 500 0.62rem var(--mono);
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.book__ribbon {
+  position: absolute;
+  right: 20%;
+  bottom: -2.1rem;
+  width: 0.7rem;
+  height: 2.6rem;
+  background: var(--ribbon);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.section__head h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.section__head a {
+  font-weight: 600;
+}
+
+.duo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+}
+
+.panel .eyebrow {
+  margin: 0;
+}
+
+.panel h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.panel h3 small {
+  margin-left: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--ink-soft);
+}
+
+.panel p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.panel .more {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* ---------- Cards ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  padding: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card__kind {
+  font: 500 0.7rem var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.card h3 {
+  margin: 0.35rem 0 0.4rem;
+  font: 600 1.05rem/1.35 var(--sans);
+}
+
+.card h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---------- Post list ---------- */
+
+.posts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.posts li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.posts time {
+  padding-top: 0.25rem;
+  font: 500 0.8rem var(--mono);
+  color: var(--ink-soft);
+}
+
+.posts a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.posts a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ---------- Inner pages ---------- */
+
+.page__head {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) 2.5rem;
+}
+
+.page__head h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+}
+
+.page__ja {
+  margin: 0.5rem 0 0;
+  font: 500 1.25rem var(--serif);
+  letter-spacing: 0.25em;
+  color: var(--ink-soft);
+}
+
+.page__head .lede {
+  margin-top: 1.25rem;
+}
+
+.page__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19rem;
+  gap: 3.5rem;
+  align-items: start;
+  padding-bottom: 4.5rem;
+}
+
+.prose {
+  max-width: 42rem;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h2 {
+  margin: 2.4em 0 0.6em;
+  font-size: 1.6rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1.1em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose .cards,
+.prose .triplets {
+  margin-block: 1.5rem;
+}
+
+.prose .cards li,
+.prose .triplets li {
+  margin-bottom: 0;
+}
+
+.links {
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.prose .links li {
+  margin: 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.links a {
+  font-weight: 600;
+}
+
+.facts {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+}
+
+.facts h2 {
+  margin: 0 0 1rem;
+  font: 500 0.75rem var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.facts dl {
+  margin: 0;
+}
+
+.facts dl div {
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.facts dl div:last-child {
+  padding-bottom: 0;
+}
+
+.facts dt {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.facts dd {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* Three leaves, two leaves, one leaf */
+
+.triplets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.triplets li {
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+.triplets .is-hitoha {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.triplets__ja {
+  font: 700 1.3rem var(--serif);
+  letter-spacing: 0.12em;
+}
+
+.triplets small {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  opacity: 0.75;
+}
+
+.leaves {
+  display: flex;
+  gap: 0.2rem;
+  height: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.leaves i {
+  width: 0.8rem;
+  height: 1.15rem;
+  background: var(--accent);
+  border-radius: 0 100% 0 100%;
+  transform: rotate(-12deg);
+}
+
+.is-hitoha .leaves i {
+  background: var(--ribbon);
+}
+
+/* ---------- 404 ---------- */
+
+.lost {
+  padding-block: clamp(4rem, 12vw, 8rem);
+  text-align: center;
+}
+
+.lost h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.lost .lede {
+  margin-inline: auto;
+}
+
+.lost .actions {
+  justify-content: center;
+}
+
+/* ---------- Footer ---------- */
+
+.site-foot {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.site-foot p {
+  max-width: 44rem;
+  margin: 1rem 0 0;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  font-weight: 600;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 56rem) {
+  .page__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .facts {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4rem;
+  }
+
+  .book {
+    width: min(11rem, 50vw);
+    margin-bottom: 1.5rem;
+  }
+
+  .nav {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .posts li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
+  }
+
+  .triplets {
+    gap: 0.4rem;
+  }
+
+  .triplets__ja {
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

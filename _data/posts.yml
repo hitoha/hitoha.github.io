@@ -1,0 +1,17 @@
+# Shown when the live feed from hitoha.moe can't be loaded (no JavaScript,
+# offline, API unreachable). assets/js/latest.js replaces it with fresh posts.
+- title: Open PON Foundation — An Open Last Mile
+  url: https://www.hitoha.moe/open-pon-foundation-an-open-last-mile/
+  date: 2026-09-08
+- title: Pururin DNS Recursive (IPv6 Only)
+  url: https://www.hitoha.moe/pururin-collective-dns-recursive/
+  date: 2026-08-01
+- title: Pururin Collective — A New Community Hub is Now Open
+  url: https://www.hitoha.moe/pururin-collective-a-new-community-hub-is-now-open/
+  date: 2026-05-25
+- title: "MY BEBAS: Deprecation of Plain DNS (Port 53)"
+  url: https://www.hitoha.moe/my-bebas-deprecation-of-plain-dns-port-53/
+  date: 2026-04-22
+- title: Let’s build DNS64 + NAT64 (464XLAT Host Side)
+  url: https://www.hitoha.moe/lets-build-dns64-nat64/
+  date: 2026-04-17

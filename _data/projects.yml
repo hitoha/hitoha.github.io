@@ -1,0 +1,34 @@
+- name: Internet Friendly Media Encoder
+  kind: Encoder
+  url: https://www.hitoha.moe/ifme/
+  summary: >-
+    IFME, started in 2012. A plug-in based media encoder that keeps subtitles,
+    fonts and attachments, remuxes with stream copy, and encodes H.264, H.265
+    and AV1 on Intel, AMD and NVIDIA hardware.
+
+- name: SFP-Master for Windows
+  kind: Hardware tool
+  url: https://www.hitoha.moe/sfp-master-for-windows/
+  summary: >-
+    A Windows port of bigbigmdm's SFP-Master. Program SFP sticks over I²C with
+    a cheap CH341A instead of a commercial programmer.
+
+- name: IMSProg for Windows
+  kind: Hardware tool
+  url: https://www.hitoha.moe/imsprog-for-windows/
+  summary: >-
+    The Linux I²C, MicroWire and SPI EEPROM/Flash programmer for CH341A
+    devices, ported to Windows with libusbK.
+
+- name: Free RustDesk Relay Server
+  kind: Service
+  url: https://www.hitoha.moe/free-rustdesk-relay-server/
+  summary: >-
+    A free RustDesk ID and relay server in Singapore for users around
+    Southeast Asia, addressed by IP so it still works when DNS doesn't.
+
+- name: Lewd 4 Dead 2
+  kind: Game mod
+  url: https://steamcommunity.com/groups/lewd4dead
+  summary: >-
+    A Left 4 Dead 2 mod project and its community group on Steam.

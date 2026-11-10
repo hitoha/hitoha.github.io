@@ -1,0 +1,62 @@
+---
+layout: page
+title: About hitoha.moe
+heading: HITOHA.もえ
+eyebrow: The website
+description: What hitoha.moe is, the projects HITOHA Labs publishes there, and the Pururin Collective community around it.
+lede: >-
+  hitoha.moe is the lab and blog of Anime4000, tagged simply “Anime Programming”.
+  It borrows its name from the quietest Marui triplet.
+facts_title: At a glance
+facts:
+  - label: Address
+    value: www.hitoha.moe
+  - label: Tagline
+    value: Anime Programming
+  - label: Run by
+    value: Anime4000
+  - label: Online since
+    value: December 2019
+  - label: Writes about
+    value: Networking, Linux, development, A.I., anime, games, music, travel
+  - label: Community
+    value: Pururin Collective
+---
+<h2>What it is</h2>
+<p>
+  The site opened in December 2019 as <strong>HITOHA Labs</strong>: one place for news, downloads
+  and write-ups for projects that had been scattered around, starting with the Internet Friendly
+  Media Encoder.
+</p>
+<p>
+  Since then it has grown into a long-running notebook. Most posts are practical: MikroTik and
+  IPv6 setups, DNS, GPON and fibre tinkering, Linux and homelab guides, A.I. experiments and
+  software releases. Anime, games, travel and the occasional Malay&ndash;Japanese Eurobeat track
+  fill the gaps.
+</p>
+<p><a class="btn btn--solid" href="{{ site.blog_url }}" rel="noopener">Visit hitoha.moe <span aria-hidden="true">&rarr;</span></a></p>
+
+<h2>Projects</h2>
+<p>Software and services published by HITOHA Labs.</p>
+{% include cards.html list=site.data.projects %}
+
+<h2>Pururin Collective</h2>
+<p>
+  Built alongside HITOHA Labs, Pururin Collective is the community side: a place where readers
+  can post their own projects, guides and discoveries instead of only reading a blog.
+</p>
+{% include cards.html list=site.data.community %}
+
+<h2>A.I. guides</h2>
+<ul class="links">
+  {% for item in site.data.guides %}
+  <li><a href="{{ item.url }}" rel="noopener">{{ item.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Partners</h2>
+<ul class="links">
+  {% for item in site.data.partners %}
+  <li><a href="{{ item.url }}" rel="noopener">{{ item.name }}</a></li>
+  {% endfor %}
+</ul>

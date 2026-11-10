@@ -1,0 +1,9 @@
+<ul class="cards">
+  {% for item in include.list %}
+  <li class="card">
+    {% if item.kind %}<span class="card__kind">{{ item.kind }}</span>{% endif %}
+    <h3><a href="{{ item.url }}" rel="noopener">{{ item.name }}</a></h3>
+    {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
